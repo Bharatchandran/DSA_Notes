@@ -77,3 +77,81 @@ function reverseString(string){
 }
 ```
 </details>
+
+<details>
+    <summary> Power of a number</summary>
+
+1. first lets write a function power with base and exp as parameters
+``` javascript
+function power(base, exp){
+
+}
+```
+2. lets think how you want to use the recurssive function 
+    - we need to multiply base with exp times
+    - therefore we need to make the exp go to 0 
+    - once exp is 0 return 1
+``` javascript
+function power(base, exp){
+    if(exp === 0){
+        return 1
+    }
+    power(base, exp-1)
+}
+```  
+3. lets say we need to get 2 power 3 here exp = 3
+    - when exp is 0 return 1 
+    - when exp is 1 we have returned value is one so how to get 2 power 1 
+    - here we need to multiply the base with the returned value and return that
+
+``` javascript
+function power(base, exp){
+    if(exp === 0){
+        return 1
+    }
+    return base * power(base, exp-1)
+}
+```  
+
+</details>
+
+<details>
+    <summary>remove spaces and tabs</summary>
+
+1. first lets write a function removeTAS with inputString as parameters
+``` javascript
+function removeTAS(inputString){
+
+}
+```
+
+2. lets think how to use the recursive function
+    - we need to reduce the inputString till length = 0 
+    - when length = 0 return empty string
+``` javascript
+function removeTAS(inputString){
+    removeTAS(inputString.slice(1))
+}
+```
+3. now returned value is empty string and unwinding the input string value is the last char of the original string 
+    - we need to check if that character is space or tab
+    - if the character is space or tab return the same as before without any change
+``` javascript
+function removeTAS(inputString){
+    if(inputString[0] === " "  || inputString[0] === "\t" ) {
+        return removeTAS(inputString.slice(1))
+    }
+    removeTAS(inputString.slice(1))
+}
+```
+4. Now when the character is not space or tab we need to add it with the returned value 
+``` javascript
+function removeTAS(inputString){
+    if(inputString[0] === " "  || inputString[0] === "\t" ) {
+        return removeTAS(inputString.slice(1))
+    }
+    return inputString[0] + removeTAS(inputString.slice(1))
+}
+```
+
+</details>

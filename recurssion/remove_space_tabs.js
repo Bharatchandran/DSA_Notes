@@ -17,9 +17,12 @@ function recuresiveRTAS(inputString) {
     }
     const firstChar = inputString[0]
     const restOfString = inputString.slice(1) 
-    if(firstChar === " " & firstChar === "\t") {
+    if(firstChar === " " || firstChar === "\t") {
         return recuresiveRTAS(restOfString)
     } else {
         return firstChar + recuresiveRTAS(restOfString)
     }
 }
+
+console.log(recuresiveRTAS("Hello how are you"));
+

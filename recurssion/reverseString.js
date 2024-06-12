@@ -20,6 +20,9 @@ function recurssiveReverseString(string){
    let result = string[string.length - 1] + reverstPart
    console.log(`Reversing: last char: ${string[string.length - 1]} added in front of ${reverstPart} to form ${result}`);
    return result
+
+   // return string[string.length - 1] + recursiveReverseString(string.substring(0, string.length - 1))
+
 }
 
 console.log(recurssiveReverseString("Hello"));

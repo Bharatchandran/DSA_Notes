@@ -1,3 +1,4 @@
+# Recursion Notes
 <details>
     <summary>Sum of N numbers </summary>
 
@@ -151,6 +152,67 @@ function removeTAS(inputString){
         return removeTAS(inputString.slice(1))
     }
     return inputString[0] + removeTAS(inputString.slice(1))
+}
+```
+
+</details>
+
+<details>
+    <summary>Count vowels</summary>
+
+1. first lets write a function countVowels with string and stringLength as parameters
+``` javascript
+function countVowels(string, stringLength = string.length){
+
+}
+```
+
+2. Let's think how to use the recursive function 
+    - we need the reduce the stringLength to 1 and when its 1 we need to check if the first index of string is a vowel or not ther return 1 if its a vowel 0 if its not 
+    - to check if its a vowel or not lets have a helper funciton isVowel
+
+``` javascript
+function isVowel(character) {
+    let lowerChar = character.toLowerCase()
+    let vowels = "aeiou"
+
+    if(vowels.indexOf(lowerChar) !== -1) {
+        retun true
+    } else {
+        return false
+    }
+}
+function countVowels(string, stringLength = string.length){
+    if(stringLength === 1){
+        return Number(isVowel(string[0]))
+    }
+
+    countVowels(string, stringLength-1)
+}
+```
+3. now assuming base case got hit and it is a vowel the returned value is 1 and the stringLength is 2
+    - now we need to check if the last character that is the second character is a vowel or not 
+    - if its a vowel we need to add 1 to the returned value 
+    - then we need to return the sum
+
+``` javascript
+function isVowel(character) {
+    let lowerChar = character.toLowerCase()
+    let vowels = "aeiou"
+
+    if(vowels.indexOf(lowerChar) !== -1) {
+        retun true
+    } else {
+        return false
+    }
+}
+
+function countVowels(string, stringLength = string.length){
+    if(stringLength === 1){
+        return Number(isVowel(string[0]))
+    }
+
+    return countVowels(string, stringLength-1) + isVowel(string[stringLength - 1])
 }
 ```
 

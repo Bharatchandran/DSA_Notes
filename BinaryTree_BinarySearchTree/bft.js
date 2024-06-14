@@ -11,8 +11,8 @@ const breadthFirstSearch = (root) => {
         return //return empty array or message
     }
     const values = []
-    const queue = []
-     while(queueMicrotask.lenth > 0 ) {
+    const queue = [root]
+     while(queue.lenth > 0 ) {
         const node = queue.shift // point of optimization
         values.push(node.key)
 

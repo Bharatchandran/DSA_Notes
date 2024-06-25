@@ -7,14 +7,7 @@ const graph = {
     f: ['e']
   };
 
-  function dfs(node) {
-    if(!visited.has(node)){
-        visited.add(node)
-        for(const neighbour of graph[node]) {
-            dfs(neighbour)
-        }
-    }
-  }
+
 
   function connectedIsland(graph) {
     const visited = new Set()

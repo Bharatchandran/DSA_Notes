@@ -55,7 +55,7 @@ function hasPathBFS(graph, start , dest) {
 
 function hasPathRec(graph, start, dest, visited = new Set()) {
     if(start === dest) return true
-    if (visited,has(start)){
+    if (visited.has(start)){
         return false
     }
     visited.add(start)
